@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { saveRestaurant } from '../actions/inputRestaurant';
+import { saveRestaurant, highlightRestaurant } from '../actions/inputRestaurant';
 
 
 class FormRestaurantInfo extends React.Component {
@@ -40,7 +40,8 @@ class FormRestaurantInfo extends React.Component {
       food: this.state.food,
       rating: this.state.rating,
     }
-    this.props.saveRestaurant(data);
+    this.props.saveRestaurant(data)
+    .then(console.log('then'))
   }
 
 
@@ -83,7 +84,8 @@ const mapStateToProps = (state) => {
 };
 
 const mapDispatchToProps = (dispatch) => ({
-  saveRestaurant: data => dispatch(saveRestaurant(data))
+  saveRestaurant: data => dispatch(saveRestaurant(data)),
+  highlightRestaurant: data => dispatch(highlightRestaurant(data))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(FormRestaurantInfo);
