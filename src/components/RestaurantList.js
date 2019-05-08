@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import RestaurantListItem from './RestaurantListItem';
 import sortRestaurants from '../selectors/restaurantList';
 
-export const RestaurantList = (props) => (
+const RestaurantList = (props) => (
   <div className="content-container">
     <div className="list-header">Top List</div>
 
