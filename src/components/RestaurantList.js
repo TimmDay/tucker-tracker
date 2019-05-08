@@ -29,7 +29,7 @@ const RestaurantList = (props) => (
 const mapStateToProps = (state) => {
   return {
     saved: sortRestaurants(
-      state.inputAddressReducer.saved, 
+      state.inputRestaurantReducer.saved, 
       state.restaurantListFiltersReducer
       )
   };

@@ -1,9 +1,9 @@
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
 import authReducer from '../reducers/auth';
-import inputAddressReducer from '../reducers/inputAddress';
+import inputRestaurantReducer from '../reducers/inputRestaurant';
 import restaurantListFiltersReducer from '../reducers/restaurantListFilters';
-import { saveRestaurant } from '../actions/inputAddress'; //TODO: testing
+import { saveRestaurant } from '../actions/inputRestaurant'; //TODO: testing
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
@@ -11,7 +11,7 @@ export default () => {
   const store = createStore(
     combineReducers({
       auth: authReducer,
-      inputAddressReducer,
+      inputRestaurantReducer,
       restaurantListFiltersReducer
     }),
     composeEnhancers(applyMiddleware(thunk))

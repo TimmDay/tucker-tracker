@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import { removeRestaurant } from '../actions/inputAddress';
+import { removeRestaurant } from '../actions/inputRestaurant';
 
 const RestaurantListItem = (props) => (
   <div className="list-item">

@@ -6,7 +6,7 @@ import LoginPage from '../components/LoginPage';
 import PrivateRoute from './PrivateRoute';
 import PublicRoute from './PublicRoute';
 import RestaurantInfo from '../components/RestaurantInfo';
-import InputAddress from '../components/InputAddress';
+import InputRestaurant from '../components/InputRestaurant';
 
 export const history = createHistory();
 

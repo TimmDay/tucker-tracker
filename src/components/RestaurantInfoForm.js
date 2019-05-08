@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { saveRestaurant } from '../actions/inputAddress';
+import { saveRestaurant } from '../actions/inputRestaurant';
 
 
 class FormRestaurantInfo extends React.Component {
@@ -78,7 +78,7 @@ class FormRestaurantInfo extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    currLoc: state.inputAddressReducer.currLoc
+    currLoc: state.inputRestaurantReducer.currLoc
   }
 };
 
