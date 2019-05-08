@@ -10,10 +10,7 @@ export const updateCurrLoc = ({loc='',lat='',lng=''} = {}) => {
 
 export const saveRestaurant = (data = {}) => {
   const { loc = '', lat = '', lng = '', name = '', food = '', rating = 0 } = data;
-  data = {
-    ...data,
-    id: uuid()
-  }
+  data = { ...data, id: uuid() }
 
   return ({
     type: 'SAVE_RESTAURANT',

@@ -26,3 +26,4 @@ https://firebase.google.com/docs/reference/js/
 https://console.firebase.google.com/
 
 
+// default map center: Oranienburger Str. 70 10117 Berlin

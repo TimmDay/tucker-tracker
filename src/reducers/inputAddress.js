@@ -14,9 +14,6 @@ const inputAddressReducer = (state = defaultState, action) => {
         saved: [...state.saved, action.data]
       }
     case 'REMOVE_RESTAURANT':
-      console.log(state.saved);
-      console.log(action.id);
-      
       return {
         ...state,
         saved: state.saved.filter(item => item.id !== action.id)

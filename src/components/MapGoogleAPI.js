@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Map, GoogleApiWrapper, Marker, InfoWindow } from 'google-maps-react';
 import { getLocFromLatLng, getCity, getState, getCountry } from '../googleAPIs/geocoding';
+// import { GoogleMap, Marker } from 'react-google-maps';
 
 const mapStyles = {
   width: '100vw',
