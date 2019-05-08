@@ -10,12 +10,18 @@
     background: $dark-blue;
   }
 }
-//TODO:
+
 .highlighted-restaurant {
-  background: green;
+  background: $dark-blue;
   color: #fff;
 }
+.highlighted-restaurant span {
+  color: #fff;
+}
+.highlighted-restaurant h3 {
+  color: $red-marker;
+}
 .highlighted-restaurant:hover {
-  background: green;
+  background: $dark-blue;
   color: #fff;
 }
