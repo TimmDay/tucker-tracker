@@ -2,8 +2,13 @@
   align-items: center;
   color: #fff;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   margin: $m-size 0;
+}
+.input-restaurant__search {
+  display: flex;
+  flex-direction: row;
 }
 .input-restaurant input {
   border: 0;

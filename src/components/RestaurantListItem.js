@@ -1,12 +1,11 @@
 import React from 'react';
 import {connect} from 'react-redux';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { removeRestaurant, highlightRestaurant } from '../actions/inputRestaurant';
 
 const RestaurantListItem = (props) => {
 
   const handleOnClick = (evt) => {
-    console.log('item clicked');
-    console.log(props.id);
     const data = {
       id: props.id,
       lat: props.lat,
@@ -34,7 +33,7 @@ const RestaurantListItem = (props) => {
         className='icon-action'
         onClick={() => props.removeRestaurant({id: props.id})}
       >
-      del
+        <FontAwesomeIcon icon="times" />          
       </div>
     </div>
   )

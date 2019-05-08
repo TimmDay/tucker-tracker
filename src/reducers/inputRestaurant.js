@@ -24,7 +24,6 @@ const inputRestaurantReducer = (state = defaultState, action) => {
         ...state,
         saved: state.saved.filter(item => item.id !== action.id)
       }
-      //TODO: check this
     case 'HIGHLIGHT_RESTAURANT':
       return {
         ...state,

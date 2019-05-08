@@ -1,5 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { setTextFilter, toggleSort } from '../actions/restaurantListFilters';
 
 export class RestaurantListFilters extends React.Component {
@@ -16,11 +17,13 @@ export class RestaurantListFilters extends React.Component {
         <input 
           type="text"
           className="text-input"
-          placeholder="search eateries"
+          placeholder="filter eateries"
           value={this.props.filters.text}
           onChange={this.onTextChange}
         />
-        <div className='icon-action' onClick={this.props.toggleSort}>sort</div>
+        <div className='icon-action' onClick={this.props.toggleSort}>
+          <FontAwesomeIcon icon="sort" />          
+        </div>
       </div>
     )
   }

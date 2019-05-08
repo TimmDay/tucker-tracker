@@ -2,48 +2,68 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { saveRestaurant, highlightRestaurant } from '../actions/inputRestaurant';
 
-
 class FormRestaurantInfo extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       name: '',
       food: '',
-      rating: ''
+      rating: '',
+      error: ''
     }
   }
 
-  //TODO: validation
   onNameChange = evt => {
     const name = evt.target.value;
-    this.setState({ name });
+    if (name.length > 300) {
+      //enforce limit
+    } else {
+      this.setState({ name });
+    }
   }
-  //TODO: validation
+
   onFoodChange = evt => {
     const food = evt.target.value;
-    this.setState({ food });
+    if (food.length > 300) {
+      //just cut them off
+    } else {
+      this.setState({ food });
+    }
   }
-  //TODO: validation
+
   onRatingChange = evt => {
     const rating = evt.target.value;
-    this.setState({ rating });
+    if (rating.match(/^[0-5]$/)) {
+      this.setState({ rating, error: '' });
+    } else {
+      this.setState({ 
+        rating: '',
+        error: 'please enter a rating from 0 to 5'
+      })
+    }
+    
   }
 
   onSubmit = evt => {
     evt.preventDefault();
-
-    const data = {
-      loc: this.props.currLoc.loc,
-      lat: this.props.currLoc.lat,
-      lng: this.props.currLoc.lng,
-      name: this.state.name,
-      food: this.state.food,
-      rating: this.state.rating,
-      highlighted: false
+    // validation
+    if (!this.state.name) this.setState({error: 'please enter the restaurant name'})
+    else if (!this.state.food) this.setState({error: 'please enter your favorite dish!'})
+    else if (!this.state.rating) this.setState({error: 'you forgot your rating!'})
+    
+    if (this.state.name && this.state.food && this.state.rating) {
+      this.setState({error: ''})
+      const data = {
+        loc: this.props.currLoc.loc,
+        lat: this.props.currLoc.lat,
+        lng: this.props.currLoc.lng,
+        name: this.state.name,
+        food: this.state.food,
+        rating: this.state.rating,
+        highlighted: false
+      }
+      this.props.saveRestaurant(data)
     }
-    //TODO: come back when I have internet connection again
-    this.props.saveRestaurant(data)
-    .then(console.log('then'))
   }
 
   render () {
@@ -53,6 +73,7 @@ class FormRestaurantInfo extends React.Component {
         onSubmit={this.onSubmit}
       >
         <p>for the restaurant at: {this.props.currLoc.loc}</p>
+        {this.state.error && <p className='err-msg'>{this.state.error}</p>}
         <div>
           <input 
             type="text"
@@ -81,7 +102,6 @@ class FormRestaurantInfo extends React.Component {
     )
   }
 }
-
 
 const mapStateToProps = (state) => {
   return {

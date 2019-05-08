@@ -19,15 +19,16 @@
 }
 
 .icon-action {
-  background: red;
-  // border-radius: 50%;
-  color: #000;
-  height: 3rem;
-  width: 3rem;
-  transition: 0.3s;
-  display: flex;
-  justify-content: center;
   align-items: center;
+  background: $red-marker;
+  border-radius: 50%;
+  color: #000;
+  display: flex;
+  font-size: 1.8rem;
+  height: 3.5rem;
+  justify-content: center;
+  transition: 0.3s;
+  width: 3.5rem;
 }
 .icon-action:hover {
   color: #fff;

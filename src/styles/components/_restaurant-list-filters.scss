@@ -13,3 +13,12 @@
   max-width: 20rem;
   text-align: center;
 }
+
+.restaurant-list-filters .icon-action {
+  background: $dark-blue;
+  color: #fff;
+  &:hover {
+    background: $red-marker;
+    color: #000;
+  }
+}

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { startLogout } from '../actions/auth';
 
 export const Header = ({ startLogout }) => (
@@ -8,7 +9,11 @@ export const Header = ({ startLogout }) => (
     <div className="content-container">
       <div className="header__content">
         <Link className="header__title" to="/main">
-          <h1>Tucker Tracker</h1>
+          <h1>
+            <FontAwesomeIcon icon="hamburger" />
+            &nbsp;&nbsp;Tucker Tracker&nbsp;&nbsp;
+            <FontAwesomeIcon icon="coffee" />
+          </h1>
         </Link>
         <button className="button button--link" onClick={startLogout}>Logout</button>
       </div>

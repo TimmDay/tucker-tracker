@@ -15,6 +15,7 @@ NICE TO HAVES
 - tidy up styles files -> make more modular
 - change font-awesome icons to assets
 - fancy font style
+- use componentShouldUpdate to restrict API calls
 
 
 # Installation
@@ -44,5 +45,3 @@ https://www.npmjs.com/package/react-geocode
 https://firebase.google.com/docs/reference/js/
 https://console.firebase.google.com/
 
-
-// default map center: Oranienburger Str. 70 10117 Berlin

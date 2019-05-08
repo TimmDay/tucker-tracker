@@ -15,14 +15,7 @@ class Map extends React.Component {
   }
 
   onMarkerClick = (lat, lng, id) => {
-    
-    //TODO: dispatch highlight corr list item
-    const data = {
-      lat, lng, id
-    }
-    //TODO: goes to actio, reducer, 
-    //updates the correct saved item highlighted value
-    this.props.highlightRestaurant(data)
+    this.props.highlightRestaurant({ lat, lng, id })
   }
   
   // onMapClicked = (props) => {
@@ -62,7 +55,6 @@ class Map extends React.Component {
     )
   }
 } 
-
 
 const mapStateToProps = (state) => {
   return {
