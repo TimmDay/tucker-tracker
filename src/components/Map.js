@@ -2,30 +2,27 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { withScriptjs, withGoogleMap, GoogleMap, Marker } from "react-google-maps"
 import { compose, withProps } from "recompose";
+import { highlightRestaurant } from '../actions/inputRestaurant';
 
 const mapStyles = {
-  width: '100vw',
-  height: '40vh',
+  width: '32rem',
+  height: '100vh',
 }
 
 class Map extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      centerLat: 52.524750,
-      centerLng: 13.393030
-    }
   }
 
-  onMarkerClick = (lat, lng) => {
-    console.log(lat, lng);
-
-    //TODO: dispatch highlight corr list item
+  onMarkerClick = (lat, lng, id) => {
     
-    this.setState({
-      centerLat: lat,
-      centerLng: lng
-    })
+    //TODO: dispatch highlight corr list item
+    const data = {
+      lat, lng, id
+    }
+    //TODO: goes to actio, reducer, 
+    //updates the correct saved item highlighted value
+    this.props.highlightRestaurant(data)
   }
   
   // onMapClicked = (props) => {
@@ -45,7 +42,10 @@ class Map extends React.Component {
         defaultZoom={13}
         defaultCenter={{ lat: 52.524750, lng: 13.393030 }}
         onClick={this.onMapClicked}
-        center={{ lat: this.state.centerLat, lng: this.state.centerLng }}
+        center={{ 
+          lat: this.props.highlighted.lat, 
+          lng: this.props.highlighted.lng 
+        }}
       >
         { this.props.saved && this.props.saved.map(loc => (
           <Marker
@@ -53,7 +53,8 @@ class Map extends React.Component {
             name={loc.name}
             food={loc.food}
             rating={loc.rating}
-            onClick={() => this.onMarkerClick(loc.lat, loc.lng)}
+            id={loc.id}
+            onClick={() => this.onMarkerClick(loc.lat, loc.lng, loc.id)}
             position={{lat: loc.lat, lng: loc.lng}}
           />
         ))}
@@ -65,13 +66,14 @@ class Map extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    currLoc: state.inputAddressReducer.currLoc,
-    saved: state.inputAddressReducer.saved
+    currLoc: state.inputRestaurantReducer.currLoc,
+    saved: state.inputRestaurantReducer.saved,
+    highlighted: state.inputRestaurantReducer.highlighted
   }
 };
 
 const mapDispatchToProps = (dispatch) => ({
-  // selectedRestaurantFromMap
+  highlightRestaurant: data => dispatch(highlightRestaurant(data))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)

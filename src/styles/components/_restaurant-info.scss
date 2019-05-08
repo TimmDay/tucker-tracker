@@ -1,5 +1,12 @@
-.restaurant-info {
+
+.restaurant-info-container {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
+  max-width: 40rem;
+}
+
+.restaurant-info__sbs {
+  display: flex;
   flex-wrap: wrap;
+  justify-content: space-around;
 }

@@ -1,3 +1,22 @@
+TODOS
+- styles: layout
+- styles: design, color, font, input underlines
+- inputs validation
+- inputs error messages for incorrect inputs
+- hook up: click map marker to highlight list
+- hook up: click list item to center map marker
+- hook up: address entry autocomplete
+- nail the readme
+
+NICE TO HAVES
+- accessibility sweep
+- add icons (search, sort ^, sort v, delete)
+- alphabetize css
+- tidy up styles files -> make more modular
+- change font-awesome icons to assets
+- fancy font style
+
+
 # Installation
 - You can view a live demo here TODO:
 

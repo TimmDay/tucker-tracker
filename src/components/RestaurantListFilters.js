@@ -12,7 +12,7 @@ export class RestaurantListFilters extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="restaurant-list-filters">
         <input 
           type="text"
           className="text-input"
@@ -20,7 +20,7 @@ export class RestaurantListFilters extends React.Component {
           value={this.props.filters.text}
           onChange={this.onTextChange}
         />
-        <button onClick={this.props.toggleSort}>sort</button>
+        <div className='icon-action' onClick={this.props.toggleSort}>sort</div>
       </div>
     )
   }

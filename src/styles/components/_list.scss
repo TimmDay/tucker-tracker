@@ -4,6 +4,7 @@
   color: $grey;
   display: flex;
   justify-content: space-between;
+  max-width: 40rem;
   padding: $s-size $m-size;
 }
 
@@ -20,6 +21,7 @@
   color: $dark-grey;
   display: flex;
   flex-direction: column;
+  max-width: 40rem;
   padding: $s-size;
   text-decoration: none;
   transition: background .3s ease;

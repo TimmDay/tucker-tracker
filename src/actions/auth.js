@@ -15,12 +15,6 @@ export const startLoginGoogle = () => {
   };
 };
 
-export const startLoginEmail = () => {
-  return () => {
-    return firebase.auth().signInWithPopup(emailAuthProvider);
-  };
-};
-
 export const logout = () => ({
   type: 'LOGOUT'
 });

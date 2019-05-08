@@ -17,3 +17,19 @@
 .button--secondary {
   background: #888;
 }
+
+.icon-action {
+  background: red;
+  // border-radius: 50%;
+  color: #000;
+  height: 3rem;
+  width: 3rem;
+  transition: 0.3s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.icon-action:hover {
+  color: #fff;
+  background: #000;
+}

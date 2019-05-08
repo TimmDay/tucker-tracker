@@ -1,0 +1,14 @@
+.restaurant-list-item {
+  position: relative;
+}
+.restaurant-list-item .icon-action {
+  position: absolute;
+  top: $s-size;
+  right: $s-size;
+}
+.highlighted-restaurant {
+  background: green;
+}
+.highlighted-restaurant:hover {
+  background: green;
+}

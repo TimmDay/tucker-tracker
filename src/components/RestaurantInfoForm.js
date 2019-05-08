@@ -39,38 +39,44 @@ class FormRestaurantInfo extends React.Component {
       name: this.state.name,
       food: this.state.food,
       rating: this.state.rating,
+      highlighted: false
     }
+    //TODO: come back when I have internet connection again
     this.props.saveRestaurant(data)
     .then(console.log('then'))
   }
 
-
   render () {
     return (
-      <form onSubmit={this.onSubmit}>
-        <p className="">tell us more about this restaurant at {this.props.currLoc.loc}</p>
-        <input 
-          type="text"
-          placeholder='restaurant name'
-          onChange={this.onNameChange}
-          className='text-input'
-          value={this.state.name}
-        />
-        <input 
-          type="text"
-          placeholder='favorite food'
-          onChange={this.onFoodChange}
-          className='text-input'
-          value={this.state.food}
-        />
-        <input 
-          type="text"
-          placeholder='rating / 5'
-          onChange={this.onRatingChange}
-          className='text-input'
-          value={this.state.rating}
-        />
-        <button onClick={this.onSubmit}>save resturant</button>
+      <form
+        className="restaurant-info-form"
+        onSubmit={this.onSubmit}
+      >
+        <p>for the restaurant at: {this.props.currLoc.loc}</p>
+        <div>
+          <input 
+            type="text"
+            placeholder='restaurant name'
+            onChange={this.onNameChange}
+            className='text-input'
+            value={this.state.name}
+          />
+          <input 
+            type="text"
+            placeholder='favorite food'
+            onChange={this.onFoodChange}
+            className='text-input'
+            value={this.state.food}
+          />
+          <input 
+            type="text"
+            placeholder='rating / 5'
+            onChange={this.onRatingChange}
+            className='text-input'
+            value={this.state.rating}
+          />
+        </div>
+        <button onClick={this.onSubmit}>save restaurant</button>
       </form>
     )
   }

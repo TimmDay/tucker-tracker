@@ -2,11 +2,15 @@ import React from 'react';
 import {connect} from 'react-redux';
 import RestaurantListItem from './RestaurantListItem';
 import sortRestaurants from '../selectors/restaurantList';
+import RestaurantListFilters from './RestaurantListFilters';
+
 
 const RestaurantList = (props) => (
-  <div className="content-container">
-    <div className="list-header">Top List</div>
-
+  <div>
+    <div className="list-header">
+      Top List
+      <RestaurantListFilters/>
+    </div>
     <div className="list-body">
       {
         props.saved.length === 0 ? (

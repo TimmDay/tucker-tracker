@@ -3,7 +3,7 @@ import thunk from 'redux-thunk';
 import authReducer from '../reducers/auth';
 import inputRestaurantReducer from '../reducers/inputRestaurant';
 import restaurantListFiltersReducer from '../reducers/restaurantListFilters';
-import { saveRestaurant } from '../actions/inputRestaurant'; //TODO: testing
+import { saveRestaurant, highlightRestaurant } from '../actions/inputRestaurant'; //TODO: testing
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
@@ -76,6 +76,13 @@ export default () => {
     id: '2abd1b81-082e-4823-bb8c-8562ec0415ty'
   }
   store.dispatch(saveRestaurant(data5));
+
+  //TODO: dispatch highlight ball haus
+  store.dispatch(highlightRestaurant({
+    lat: -37.8136276,
+    lng: 144.9630576,
+    id: '2abd1b81-082e-4823-bb8c-8562ec0415ty'
+  }))
 
   return store;
 };
