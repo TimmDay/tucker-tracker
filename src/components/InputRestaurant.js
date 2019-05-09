@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import Autocomplete from 'react-google-autocomplete'; //TODO:
+import ReactAutocomplete from 'react-autocomplete';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { getLatLngFromLoc } from '../googleAPIs/geocoding';
 import { updateCurrLoc } from '../actions/inputRestaurant';
@@ -10,6 +10,7 @@ class InputAddress extends React.Component {
     super(props);
     this.state = {
       typedAddress: '',
+      autoComOptions: [],
       error: ''
     }
   }
@@ -17,8 +18,20 @@ class InputAddress extends React.Component {
   onAddressChange = evt => {
     const typedAddress = evt.target.value;
     if (name.length > 300) {
-      //enforce limit
+      //enforce limit, do nothing
     } else {
+      // autocomplete conditions
+      if (typedAddress.length > 2) {
+        getLatLngFromLoc(typedAddress)
+          .then(res => {
+            const locs = res.results.map(item => {
+              return {label: item.formatted_address}
+            })
+            console.log(res.results.length);//TODO:
+            console.log(locs);
+            this.setState({ autoComOptions: locs })
+          })
+      }
       this.setState(() => ({ typedAddress: typedAddress }));
     }
   }
@@ -53,13 +66,28 @@ class InputAddress extends React.Component {
       <div className='input-restaurant'>
         <div className='input-restaurant__search'>
           <form onSubmit={this.onSubmit}>
-            <input 
-              className='text-input'
-              type="text"
-              placeholder="enter a restaurant address"
+            <ReactAutocomplete
+              items={this.state.autoComOptions}
+              getItemValue={item => item.label} // reads each entry in items
+
+              renderItem={(item, isHighlighted) =>
+                  <div
+                    key={item.id}
+                    style={{
+                      color: isHighlighted ? 'red' : '#333',
+                      padding: '5px'
+                    }}
+                  >
+                    {item.label}
+                  </div>
+              }
               value={this.state.typedAddress}
               onChange={this.onAddressChange}
-              autoFocus
+              onSelect={loc => this.setState({typedAddress: loc})}
+              inputProps={{
+                className: 'text-input',
+                placeholder: 'enter a restaurant address',
+              }}
             />
           </form>
           <div className='icon-action' onClick={this.onSubmit}>

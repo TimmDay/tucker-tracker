@@ -41,7 +41,9 @@ https://www.npmjs.com/package/google-maps-react
 
 https://www.npmjs.com/package/react-geocode
 
-###Firebase Authentication
+### Firebase Authentication
 https://firebase.google.com/docs/reference/js/
 https://console.firebase.google.com/
 
+### react autocomplete
+https://github.com/reactjs/react-autocomplete

@@ -10,16 +10,19 @@ exports[`should correctly render LoginPage 1`] = `
     <h1
       className="box-layout__title"
     >
-      Boilerplate
+      Tucker Tracker
     </h1>
     <p>
-      Tag line for app.
+      Track your Tucker-sellers
     </p>
     <button
       className="button"
     >
       Login with Google
     </button>
+    <p>
+      (tucker is Australian for food)
+    </p>
   </div>
 </div>
 `;
