@@ -17,24 +17,12 @@ class Map extends React.Component {
   onMarkerClick = (lat, lng, id) => {
     this.props.highlightRestaurant({ lat, lng, id })
   }
-  
-  // onMapClicked = (props) => {
-  //   console.log('map clicked'); //TODO:
-    
-  //   if (this.state.showingInfoWindow) {
-  //     this.setState({
-  //       showingInfoWindow: false,
-  //       activeMarker: null
-  //     })
-  //   }
-  // };
 
   render() {
     return (
       <GoogleMap
         defaultZoom={13}
         defaultCenter={{ lat: 52.524750, lng: 13.393030 }}
-        onClick={this.onMapClicked}
         center={{ 
           lat: this.props.highlighted.lat, 
           lng: this.props.highlighted.lng 

@@ -8,11 +8,7 @@ import { updateCurrLoc } from '../actions/inputRestaurant';
 class InputAddress extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      typedAddress: '',
-      autoComOptions: [],
-      error: ''
-    }
+    this.state = { typedAddress: '', autoComOptions: [], error: '' }
   }
 
   onAddressChange = evt => {
@@ -77,8 +73,7 @@ class InputAddress extends React.Component {
                     color: isHighlighted ? '#ea4335' : '#333',
                     padding: '5px'
                   }}
-                >
-                  {item.label}
+                > {item.label}
                 </div>
               }
               value={this.state.typedAddress}
