@@ -20,17 +20,18 @@ class InputAddress extends React.Component {
     if (name.length > 300) {
       //enforce limit, do nothing
     } else {
-      // autocomplete conditions
+      // autocomplete suggestions only with 3 or more chars
       if (typedAddress.length > 2) {
         getLatLngFromLoc(typedAddress)
           .then(res => {
             const locs = res.results.map(item => {
               return {label: item.formatted_address}
             })
-            console.log(res.results.length);//TODO:
-            console.log(locs);
             this.setState({ autoComOptions: locs })
           })
+      } else {
+        // clear the suggestions
+        this.setState({ autoComOptions: [] })
       }
       this.setState(() => ({ typedAddress: typedAddress }));
     }
@@ -69,17 +70,16 @@ class InputAddress extends React.Component {
             <ReactAutocomplete
               items={this.state.autoComOptions}
               getItemValue={item => item.label} // reads each entry in items
-
               renderItem={(item, isHighlighted) =>
-                  <div
-                    key={item.id}
-                    style={{
-                      color: isHighlighted ? 'red' : '#333',
-                      padding: '5px'
-                    }}
-                  >
-                    {item.label}
-                  </div>
+                <div
+                  key={item.id}
+                  style={{
+                    color: isHighlighted ? '#ea4335' : '#333',
+                    padding: '5px'
+                  }}
+                >
+                  {item.label}
+                </div>
               }
               value={this.state.typedAddress}
               onChange={this.onAddressChange}

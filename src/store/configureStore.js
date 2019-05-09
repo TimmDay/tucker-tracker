@@ -3,7 +3,7 @@ import thunk from 'redux-thunk';
 import authReducer from '../reducers/auth';
 import inputRestaurantReducer from '../reducers/inputRestaurant';
 import restaurantListFiltersReducer from '../reducers/restaurantListFilters';
-import { saveRestaurant, highlightRestaurant } from '../actions/inputRestaurant'; //TODO: testing
+import { saveRestaurant, highlightRestaurant } from '../actions/inputRestaurant'; //for demo
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
@@ -17,7 +17,7 @@ export default () => {
     composeEnhancers(applyMiddleware(thunk))
   );
 
-  // TESTING: TODO:
+  // DEMO:
   //Amrit Indian. Oranienburger Str. 45, 10117 Berlin
   const data1 = {
     loc: "Oranienburger Str. 45, 10117 Berlin, Germany",
@@ -77,7 +77,7 @@ export default () => {
   }
   store.dispatch(saveRestaurant(data5));
 
-  //TODO: dispatch highlight ball haus
+  //dispatch highlight ball haus
   store.dispatch(highlightRestaurant({
     lat: -37.8136276,
     lng: 144.9630576,
